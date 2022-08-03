@@ -1,0 +1,80 @@
+.landing-div{
+   background-color: (#ffffff);
+   padding-top: 3.7em;
+   overflow: hidden;
+}
+
+.landing-headline{
+   height: auto;
+   width: 100vw;
+   transform: translateX(-0.4vw);
+}
+
+.landing-main-div{
+   height: auto;
+   width: 70%;
+   outline: 1pt black solid;
+   margin: auto;
+   margin-top: 5vh;
+   padding: 5px;
+}
+
+.landing-main-div .title{
+   padding: 0.2em;
+   font-size: 1.7em;
+}
+
+.landing-main-div .subtitle{
+   padding: 0.2em;
+   font-size: 1.2em;
+   color: #9D9C9C;
+}
+
+.landing-main-div .file-box{
+   outline: 1pt black solid;
+   height: 400px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.landing-main-div .file-box .file-button{
+   background-color: var(--primary-green);
+}
+
+.landing-main-div .youtube-link{
+   padding: 0.6em;
+   padding-left: 0.8em;
+   width: 100%;
+   font-size: 0.9em;
+   color: #333333;
+   outline: 1pt #656565 solid;
+   border-radius: 0.3rem;
+   margin-top: 0.2em;
+   margin-left: 0.2em;
+   margin-bottom: 3em;
+}
+
+.landing-main-div .button-holder{
+   margin: auto;
+   text-align: center;
+}
+
+.landing-main-div .submit-button{
+   color: #ffffff;
+   background-color: var(--primary-green);
+   cursor: pointer;
+   font-size: 1.2em;
+   font-weight: bold;
+   border: none;
+   border-radius: 1rem;
+   padding: 1em 4em;
+   margin-bottom: 3em;
+   transition: all .5s;
+   /* outline: 1pt #656565 solid; */
+}
+
+.landing-main-div .submit-button:hover{
+   color: #212121;
+   transform: scale(1.1);
+}
