@@ -1,0 +1,31 @@
+:root{
+   --primary-green: #66BAA7;
+   --secondary-green: #4E8679;
+}
+* {
+   border: 0;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: nunito, sans-serif;
+ }
+ 
+ body {
+   font-size: 20px;
+   background-color: #fefefe;
+ } @media(max-width: 638px) {
+   body{
+      font-size: 14px;
+   }
+} @media(max-width: 768px) {
+   .nav-wrapper {
+      font-size: 16px;
+   }
+ }
+
+ a {
+   color: inherit;
+   font-family: inherit;
+   font-size: inherit;
+   text-decoration: none;
+ }
