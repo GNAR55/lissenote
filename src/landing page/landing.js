@@ -6,7 +6,7 @@ import "./landing.css"
 import {ReactComponent as Heading} from './landing-tagline.svg'
 
 function DragAndDrop() {
-   const fileTypes = ["JPEG", "PNG", "GIF"];
+   const fileTypes = ["JPEGs", "PNG", "GIF"];
    const [file, setFile] = useState(null);
       const handleChange = (file) => {
          setFile(file);
@@ -18,6 +18,7 @@ function DragAndDrop() {
                   multiple={true}
                   handleChange={handleChange}
                   name="file"
+                  label="Drag and Drop Files"
                   types={fileTypes}
                   classes = "file-button file-window"
                   />
@@ -107,6 +108,7 @@ class Form extends React.Component {
 
 
 export default function landing() {
+
   return (
     <div className='landing-div'>
       <Heading className="landing-headline"/>
