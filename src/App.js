@@ -9,7 +9,7 @@ import Navbar from './navbar/navbar.js';
 import Landing from './landing page/landing.js';
 import Example from './examples/examples.js';
 import WhyLissenote from './whyLissenote/why.js';
-import Team from './team/team.js'
+import Team from './team/team.js';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
                   <Landing />
                   <Example />
                   <WhyLissenote />
-                  <Team />
+                  <Team /> 
               </div>
             }
           />

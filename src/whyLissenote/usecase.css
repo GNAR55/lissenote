@@ -1,0 +1,43 @@
+.usecase-box {
+   background-color: #a7d7cc;
+   font-family: 'Nunito', sans-serif;
+}
+
+/* .top-text {
+   font-size: 32px;
+} */
+
+.top-text {
+   padding-left: 8%;
+   font-size: 30px;
+   color: black;
+   font-weight: 900;
+   padding-bottom: 15%;
+   padding-top: 3%;
+   padding-right: 8%;
+}
+
+.list {
+   font-size: 30px;
+   padding-left: 8%;
+   padding-bottom: 20%;
+   padding-right: 8%;
+}
+
+
+.color {
+   padding-top: 5%;
+   background-color: #66BAA7;
+}
+
+@media screen and (max-width:768px) {
+   .top-text, .list {
+       font-size: 22px;
+   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+   .top-text, .list {
+       font-size: 22px;
+   }
+}

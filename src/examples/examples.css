@@ -1,4 +1,260 @@
 .examples-div{
    background-color: var(--secondary-green);
-   height: 100vh;
 }
+
+*{
+   margin: 0;
+ }
+ .bod {
+   font-family: 'Nunito', sans-serif;
+   padding-bottom: 7%;
+ }
+ .head {
+   text-align: center;
+   color: white;
+   font-size: 48px;
+   font-weight: 900;
+ }
+ 
+ .image {
+   clear: right;
+   padding-top: 3%;
+   padding-left: 5%;
+   float: left;
+   padding-right: 4%;
+   width: 45%;
+   height: 50%;
+ }
+ .completecompo1, .completecompo2, .completecompo3{
+   display: flex;
+ }
+ 
+ .completecompo2 {
+   flex-direction: row-reverse;
+ }
+ 
+ 
+ 
+ /* .image {
+   clear: left;
+   padding-right: 90px;
+   float: right;
+ } */
+ 
+ /* .image {
+   clear: right;
+   float: left;
+   padding-left: 100px;
+   padding-right: 5%;
+   padding-bottom: 100px;
+ } */
+ 
+ .example-text1 {
+   padding-top: 25%;
+   font-size: 42px;
+   padding-right: 7%;
+ }
+ 
+ .example-text2 {
+   clear: left;
+   padding-top: 25%;
+   font-size: 42px;
+   padding-right: 3%;
+   padding-left: 5%;
+ }
+ 
+ .example-text3 {
+   padding-top: 25%;
+   font-size: 42px;
+   padding-right: 5%;
+   padding-bottom: 25%;
+ }
+ 
+ .head-text {
+   font-size: 48px;
+   font-family: 'Nunito', sans-serif;
+   font-weight: 900;
+   padding-top: 1%;
+   padding-bottom: 10%;
+   text-align: center;
+ }
+ 
+ .why-compo1, .why-compo2, .why-compo3 {
+   
+   width: 28%;
+   height: 50%;
+   padding-left: 5%;
+   display: inline-flex;
+ }
+ 
+ .high {
+   display:inline;
+   background-color: white;
+   color: #4E8679;
+ }
+ 
+ .image2 {
+   clear: right;
+   padding-top: 3%;
+   padding-left: 5%;
+   float: left;
+   padding-right: 4%;
+   width: 40%;
+   height: 50%;
+ }
+ 
+ .why-lis {
+   padding-bottom: 14%;
+ }
+ 
+ .head-text-team {
+   font-size: 48px;
+   font-family: 'Nunito', sans-serif;
+   font-weight: 900;
+   padding-top: 1%;
+   text-align: center;
+   color: white;
+ }
+ 
+ .team-compo {
+   background-color: #B796A7;
+ }
+ 
+ .temp {
+   display: flex;
+   flex-wrap: wrap;
+ 
+   margin-right: 50px;
+   margin-left: 50px;
+   /* padding-left: 3%;
+   padding-bottom: 3%; */
+ }
+ 
+ .temp > *{
+   flex: 1 1 300px;
+   margin: 4%;
+ }
+ 
+ 
+ 
+ @media screen and (max-width:768px) {
+   .image {
+     padding-left: 16%;
+     width: 70%;
+     height: 50%;
+   }
+   .head {
+     font-size: 38px;
+     font-weight: 900;
+   }
+ 
+   .head-text {
+     font-size: 33px;
+     text-align: center;
+   }
+   
+   .example-text1, .example-text3 {
+     padding-left: 16%;
+     padding-top: 7%;
+     font-size: 30px;
+     padding-bottom: 7%;
+   }
+   .example-text2{
+     padding-left: 16%;
+     padding-top: 7%;
+     font-size: 30px;
+     padding-bottom: 7%;
+   }
+ 
+   .completecompo1, .completecompo2, .completecompo3 {
+     flex-direction: column-reverse;
+   }
+ 
+ 
+   .why-compo1, .why-compo2, .why-compo3 {
+     padding-left: 10%;
+     padding-bottom: 7%;
+     width: 80%;
+   }
+ 
+   .head-text-team {
+     font-size: 33px;
+     padding-bottom: 5%;
+   }
+ 
+   .temp > *{
+     margin-bottom: 7%;
+   }
+ 
+ }
+ 
+ 
+ @media screen and (min-width: 768px) and (max-width: 1024px) {
+ 
+   .why-compo1, .why-compo2, .why-compo3 {
+     padding-left: 2.5%;
+     padding-bottom: 7%;
+     width: 30%;
+   }
+ 
+   .image{
+     width: 42%;
+   }
+ 
+   .example-text1, .example-text3 {
+     padding-left: 1%;
+     padding-top: 25%;
+     font-size: 40px;
+     padding-bottom: 7%;
+   }
+   .example-text2{
+     padding-left: 7%;
+     padding-top: 25%;
+     font-size: 40px;
+     padding-bottom: 7%;
+   }
+ 
+ }
+ 
+ @media only screen and (device-width: 768px) {
+   .example-text1, .example-text3 {
+     padding-left: 3.5%;
+     padding-top: 25%;
+     font-size: 30px;
+     padding-bottom: 7%;
+   }
+   .example-text2{
+     padding-left: 7%;
+     padding-top: 25%;
+     font-size: 30px;
+     padding-bottom: 7%;
+   }
+ 
+   .completecompo1, .completecompo3 {
+     flex-direction: initial;
+   }
+   .completecompo2 {
+     flex-direction: row-reverse;
+   }
+   .image{
+     padding-left: 3%;
+   }
+ 
+   .temp > *{
+     flex: 0 1 311px;
+     margin: 3%;
+   }
+   
+ }
+ 
+ 
+ 
+ 
+ 
+ @media only screen and (device-width: 626px) {
+ 
+   .temp > *{
+     margin: 10%;
+   }
+ 
+ }
