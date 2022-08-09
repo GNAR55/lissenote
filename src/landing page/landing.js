@@ -10,16 +10,10 @@ function DragAndDrop() {
    const [file, setFile] = useState(null);
       const handleChange = (file) => {
          setFile(file);
+         console.log(file[0].name)
    };
    return (
-         <div className="file-box">
-               <div className="file-button">
-                  Browse Files
-               </div>
-               <div className="file-or">
-                  or
-               </div>
-               <div className="file-window">
+            <div className="file-window">
                <FileUploader
                   multiple={true}
                   handleChange={handleChange}
@@ -28,9 +22,90 @@ function DragAndDrop() {
                   classes = "file-button file-window"
                   />
                </div>
-            </div>
    )
 }
+
+class FileUpload extends React.Component {
+   state = {
+      selectedFile: null,
+   }
+   onFileChange = event => {
+      this.setState({selectedFile : event.target.files[0]})
+      console.log(event.target.files[0])
+   }
+   onFileUpload = () => {
+   }
+   fileData = () => {
+    
+    if (this.state.selectedFile) {
+       
+      return (
+         <div className="file-button">
+            <p>{this.state.selectedFile.name}</p>
+            <p>{this.state.selectedFile.size}</p>
+            <p>{this.state.selectedFile.type}</p>
+         </div>
+      )
+    }
+    else{
+      return (
+         <div className="file-button">
+                  Browse Files
+         </div>
+      )
+    }
+   }
+   render() {
+      return (
+         <label class="custom-file-upload">
+         <input type="file" onChange={this.onFileChange} className="file-button"/>
+         Browse Files
+         </label>
+      )
+}
+}
+class Form extends React.Component {
+      constructor(props) {
+         super(props);
+         this.state = {value: ''};
+         this.handleChange = this.handleChange.bind(this);
+         this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+   render() {
+      return (
+         <form onSubmit={this.handleSubmit}>
+               <div className="file-box">
+                  <FileUpload />
+                  <div className="file-or">
+                     or
+                  </div>
+                  <DragAndDrop/>
+            </div>
+               <div className="title">
+                  Youtube Link
+               </div>
+               <div className="subtitle">
+                  Enter a youtube link to a lecture, podcast, documentary or anything else
+               </div>
+               <input value={this.state.value} onChange={this.handleChange} className='youtube-link'/>
+               <div className="button-holder">
+                  <input type="submit" value="Convert" className='submit-button'/>
+               </div>
+            </form>
+         );
+   }
+}
+
+
 export default function landing() {
   return (
     <div className='landing-div'>
@@ -42,19 +117,7 @@ export default function landing() {
             <div className="subtitle">
                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id dapibus elit,  facilisis faucibus purus.
             </div>
-            <form action="" method="post">
-               <DragAndDrop/>
-               <div className="title">
-                  Youtube Link
-               </div>
-               <div className="subtitle">
-                  Enter a youtube link to a lecture, podcast, documentary or anything else
-               </div>
-               <input type="url" name="url" id="url" className='youtube-link'/>
-               <div className="button-holder">
-                  <input type="submit" value="Convert" className='submit-button'/>
-               </div>
-            </form>
+            <Form/>
       </div>
     </div>
   )

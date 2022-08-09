@@ -7,13 +7,13 @@
 .landing-headline{
    height: auto;
    width: 100vw;
-   transform: translateX(-0.4vw);
+   transform: translateX(-0.2vw);
 }
 
 .landing-main-div{
    height: auto;
-   width: 70%;
-   outline: 1pt black solid;
+   width: 75%;
+   /* outline: 1pt black solid; */
    margin: auto;
    margin-top: 5vh;
    padding: 5px;
@@ -31,17 +31,51 @@
 }
 
 .landing-main-div .file-box{
-   outline: 1pt black solid;
-   height: 400px;
+   /* outline: 1pt black solid; */
+   margin: 2em 0 ;
    display: flex;
    align-items: center;
-   justify-content: center;
+   justify-content: space-evenly;
+
 }
 
-.landing-main-div .file-box .file-button{
+.landing-main-div .file-box .custom-file-upload{
+   color: #ffffff;
    background-color: var(--primary-green);
+   cursor: pointer;
+   font-size: 1.2em;
+   font-weight: bold;
+   border: none;
+   border-radius: 1rem;
+   padding: 1em 3em;
+   transition: all .5s;
 }
 
+.landing-main-div .file-box .custom-file-upload input[type="file"]{
+   display: none;
+}
+
+.landing-main-div .file-box .file-window{
+   /* outline: #212121 dotted 5px; */
+   width: 50%;
+   height: 50vh;
+}
+
+.landing-main-div .file-box .file-window .file-button{
+   outline: #212121 dashed 3px;
+   border: none;
+   width: 100%;
+   height: 100%;
+   text-align: center;
+}
+
+.landing-main-div .file-box .file-window .fVfcRr{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+}
 .landing-main-div .youtube-link{
    padding: 0.6em;
    padding-left: 0.8em;
@@ -71,10 +105,40 @@
    padding: 1em 4em;
    margin-bottom: 3em;
    transition: all .5s;
+   position: relative;
+   -webkit-transition: all 0.7s ease;
+   transition: all 0.7s ease;
    /* outline: 1pt #656565 solid; */
 }
 
+.landing-main-div .submit-button::before{
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0px;
+   width: 0px;
+   height: 3px;
+   background: #d0f9c7;
+   transition: all 0.4s ease;
+}
+
+.landing-main-div .submit-button::after{
+   top: inherit;
+    left: inherit;
+    bottom: 0;
+    right: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 0px;
+    height: 3px;
+    background: #d0f9c7;
+    transition: all 0.4s ease;
+}
+
+
 .landing-main-div .submit-button:hover{
-   color: #212121;
+   color: #eeeeee;
    transform: scale(1.1);
 }
