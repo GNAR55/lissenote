@@ -1,29 +1,76 @@
-import React from 'react'
-import UseCase from '../whyLissenote/usecase.js'
+import React from "react";
 
-import './why.css'
-import "../examples/examples.css"
+import "./why.css";
+
+import Fade from 'react-reveal/Fade';
+
 
 function why() {
   return (
-    <div className='why-div'>
-      <div className='why-lis'>
-        <p className='head-text'>Why lissenote?</p>
-        <div className='wrappup'>
-          <div className='why-compo1'>
-            <UseCase content="Lectures to Documentaries, Podcasts to Meetings" title="Convert anything and everything"/>
+    <div className="why-div">
+      <div className="why-lis">
+        <p className="head">Why lissenote?</p>
+        <div className="wrappup">
+          <Fade bottom>
+          <div className="usecase-box-wrapper">
+            <div className="usecase-box">
+              <p className="title">Convert anything and everything</p>
+              <div className="content">
+                Lectures to Documentaries, Podcasts to Meetings
+              </div>
+            </div>
           </div>
-          <div className='why-compo2'>
-            <UseCase content="Quickly go through the notes to catch up anything you missed" title="Missed something?"/>
+          </Fade>
+          <Fade bottom>
+          <div className="usecase-box-wrapper">
+            <div className="usecase-box">
+              <p className="title">Missed something?</p>
+              <div className="content">
+                Quickly go through the notes to catch up anything you missed
+              </div>
+            </div>
           </div>
-          <div className='why-compo3'>
-            <UseCase content="Lorem ipsum dolor sit amet, consectetur adipiscing elit." title="Lorem Ipsum"/>
+          </Fade>
+          <Fade bottom>
+          <div className="usecase-box-wrapper">
+            <div className="usecase-box">
+              <p className="title">Lorem Ipsum</p>
+              <div className="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </div>
+            </div>
           </div>
+          </Fade>
         </div>
       </div>
-
     </div>
-  )
+  );
 }
 
-export default why
+{
+  /* <div className='why-compo1'>
+            <div className='usecase-box-wrapper'>
+              <div className='usecase-box'>
+                
+              </div>
+            </div>
+          </div>
+          <div className='why-compo2'>
+            <div className='usecase-box-wrapper'>
+              <div className='usecase-box'>
+                <p className='title'>Missed something?</p>
+                <div className='list'>
+                  Quickly go through the notes to catch up anything you missed
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='why-compo3'>
+            <div className='usecase-box-wrapper'>
+              <div className='usecase-box'>
+                
+              </div>
+            </div>
+          </div> */
+}
+export default why;

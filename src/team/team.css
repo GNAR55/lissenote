@@ -1,4 +1,100 @@
 .team-div{
-   background-color: var(--primary-green);
-   height: 100vh;
+   background-color: #B796A7;
+   padding: 2em 1em;
+   min-height: 90vh;
+ }
+
+.team-div .head {
+   text-align: center;
+   color: #212121;
+   font-size: 2.5em;
+   font-weight: 200;
+   padding-bottom: 1em;
+ }@media screen and (max-width:748px){
+      .team-div .head {
+         padding-bottom: 0.5em;
+      }
+ }
+
+.team-div .team-card{
+   background-color: #EBCCDC;;
 }
+ .pfp {
+   display: flex;
+   margin-left: auto;
+   margin-right: auto;
+   padding-top: 12%;
+}
+
+.name{
+   text-align: center;
+   font-size: 40px;
+   padding-top: 3%;
+   padding-bottom: 3%;
+   color: #744B60;
+   font-family: 'Nunito', sans-serif;
+}
+
+.links {
+   display: flex;
+   padding-top: 5%;
+   padding-bottom: 5%;
+   padding-left: 5%;
+}
+
+.links > *{
+   margin-left: 7%;
+   margin-right: 7%;
+}
+
+.linkedin, .git {
+   width: 80%;
+}
+
+.mail {
+   width: 85%;
+   height: 85%;
+}
+
+.pfp {
+   width: 25%;
+}
+
+@media screen and (max-width:768px) {
+   .linkedin, .git {
+       width: 80%;
+   }
+
+   .mail {
+       width: 85%;
+       height: 85%;
+   }
+
+   .pfp {
+       width: 20%;
+   }
+
+   .name{
+       font-size: 25px;
+       padding-top: 3%;
+       padding-bottom: 3%;
+   }
+
+
+}
+
+
+@media only screen and (device-width: 626px) {
+
+   .links > *{
+       margin-left: 10%;
+       margin-right: 10%;
+   }
+   
+   .name{
+       font-size: 27px;
+       padding-top: 5%;
+       padding-bottom: 3%;
+   }
+ 
+ }
