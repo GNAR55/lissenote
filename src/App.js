@@ -29,6 +29,14 @@ function App() {
               </div>
             }
           />
+           <Route
+            exact
+            path="/convert"
+            element={
+              <div>
+              </div>
+            }
+          />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </>

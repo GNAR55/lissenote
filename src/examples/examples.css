@@ -1,73 +1,92 @@
+
 .examples-div{
    background-color: var(--secondary-green);
+   padding: 2em 1em;
 }
 
-*{
-   margin: 0;
- }
- .bod {
-   font-family: 'Nunito', sans-serif;
-   padding-bottom: 7%;
- }
- .head {
+.example-container{
+   max-width: 1400px;
+   margin: auto;
+}
+
+ .examples-div .head {
    text-align: center;
    color: white;
-   font-size: 48px;
-   font-weight: 900;
+   font-size: 2.5em;
+   font-weight: 200;
+   padding-bottom: 1em;
+ }@media screen and (max-width:748px){
+      .examples-div .head {
+         padding-bottom: 0.5em;
+      }
  }
  
- .image {
-   clear: right;
-   padding-top: 3%;
-   padding-left: 5%;
-   float: left;
-   padding-right: 4%;
-   width: 45%;
-   height: 50%;
- }
+
  .completecompo1, .completecompo2, .completecompo3{
    display: flex;
- }
- 
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 10%;
+ }@media screen and (max-width:1024px){
+   .completecompo1, .completecompo2, .completecompo3{
+      padding-bottom: 3em;
+   }
+}@media screen and (max-width:768px){
+   .completecompo1, .completecompo2, .completecompo3{
+      padding-bottom: 1em;
+   }
+}@media screen and (max-width:540px){
+   .completecompo1, .completecompo2, .completecompo3{
+      padding-bottom: 2em;
+   }
+}
+
  .completecompo2 {
    flex-direction: row-reverse;
  }
- 
- 
- 
- /* .image {
-   clear: left;
-   padding-right: 90px;
-   float: right;
- } */
- 
- /* .image {
-   clear: right;
-   float: left;
-   padding-left: 100px;
-   padding-right: 5%;
-   padding-bottom: 100px;
- } */
- 
- .example-text1 {
-   padding-top: 25%;
-   font-size: 42px;
-   padding-right: 7%;
+
+
+ .image {
+   width: 35%;
+ }@media screen and (max-width:1024px){
+   .image {
+     width: 40%;
+   }
+ }@media screen and (max-width:748px){
+   .image {
+     width: 80%;
+   }
+ }@media screen and (max-width:540px){
+   .image {
+     width: 100%;
+   }
  }
  
- .example-text2 {
-   clear: left;
-   padding-top: 25%;
-   font-size: 42px;
-   padding-right: 3%;
-   padding-left: 5%;
- }
- 
- .example-text3 {
-   padding-top: 25%;
-   font-size: 42px;
-   padding-right: 5%;
-   padding-bottom: 25%;
+
+ .example-container .example-text{
+   max-width: 40%;
+    font-size: 2em;
+    line-height: 1.5em;
+    font-weight: 100;
+ }@media screen and (max-width:1024px){
+   .example-container .example-text{
+       font-size: 1.5em;
+       padding: 1em 0em;
+    }
+ }@media screen and (max-width:748px){
+   .example-container .example-text{
+       font-size: 1.5em;
+       padding: 1em 0em;
+       text-align: center;
+    }
+ }@media screen and (max-width:540px){
+   .example-container .example-text{
+      max-width: 100%;
+       font-size: 1.5em;
+       padding: 1em 0em;
+       text-align: center;
+    }
  }
  
  .head-text {
@@ -138,11 +157,6 @@
  
  
  @media screen and (max-width:768px) {
-   .image {
-     padding-left: 16%;
-     width: 70%;
-     height: 50%;
-   }
    .head {
      font-size: 38px;
      font-weight: 900;
@@ -151,19 +165,6 @@
    .head-text {
      font-size: 33px;
      text-align: center;
-   }
-   
-   .example-text1, .example-text3 {
-     padding-left: 16%;
-     padding-top: 7%;
-     font-size: 30px;
-     padding-bottom: 7%;
-   }
-   .example-text2{
-     padding-left: 16%;
-     padding-top: 7%;
-     font-size: 30px;
-     padding-bottom: 7%;
    }
  
    .completecompo1, .completecompo2, .completecompo3 {
@@ -197,38 +198,9 @@
      width: 30%;
    }
  
-   .image{
-     width: 42%;
-   }
- 
-   .example-text1, .example-text3 {
-     padding-left: 1%;
-     padding-top: 25%;
-     font-size: 40px;
-     padding-bottom: 7%;
-   }
-   .example-text2{
-     padding-left: 7%;
-     padding-top: 25%;
-     font-size: 40px;
-     padding-bottom: 7%;
-   }
- 
  }
  
  @media only screen and (device-width: 768px) {
-   .example-text1, .example-text3 {
-     padding-left: 3.5%;
-     padding-top: 25%;
-     font-size: 30px;
-     padding-bottom: 7%;
-   }
-   .example-text2{
-     padding-left: 7%;
-     padding-top: 25%;
-     font-size: 30px;
-     padding-bottom: 7%;
-   }
  
    .completecompo1, .completecompo3 {
      flex-direction: initial;

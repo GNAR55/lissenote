@@ -12,7 +12,7 @@
 
 .landing-main-div{
    height: auto;
-   max-width: 1250px;
+   max-width: 1200px;
    /* outline: 1pt black solid; */
    margin: auto;
    margin-top: 5vh;
@@ -51,6 +51,9 @@
    transition: all .5s;
 }
 
+.landing-main-div .file-box .custom-file-upload:hover{
+   background-color: var(--secondary-green);
+}
 .landing-main-div .file-box .custom-file-upload input[type="file"]{
    display: none;
 }
@@ -128,41 +131,117 @@
    border-radius: 1rem;
    padding: 1em 4em;
    margin-bottom: 3em;
-   transition: all .5s;
    position: relative;
-   -webkit-transition: all 0.7s ease;
-   transition: all 0.7s ease;
+   -webkit-transition: all 0.5s ease;
+   transition: all 0.5s ease;
    /* outline: 1pt #656565 solid; */
 }
-
-.landing-main-div .submit-button::before{
-   content: '';
-   position: absolute;
-   top: 0;
-   left: 0px;
-   width: 0px;
-   height: 3px;
-   background: #d0f9c7;
-   transition: all 0.4s ease;
+/* sliding animation on hover */
+.landing-main-div .submit-button:hover{
+   background-color: var(--secondary-green);
+   transform: translateY(-0.2em);
 }
-
-.landing-main-div .submit-button::after{
-   top: inherit;
-    left: inherit;
-    bottom: 0;
-    right: 0;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0px;
-    width: 0px;
-    height: 3px;
-    background: #d0f9c7;
-    transition: all 0.4s ease;
-}
-
-
 .landing-main-div .submit-button:hover{
    color: #eeeeee;
    transform: scale(1.1);
 }
+
+button {
+   margin: 20px;
+ }
+ .custom-btn {
+   color: #ffffff;
+   background-color: var(--primary-green);
+   font-size: 1.2em;
+   border: none;
+   padding: 1em 4em;
+   margin-bottom: 3em;
+   transition: all .5s;
+   -webkit-transition: all 0.7s ease;
+   transition: all 0.7s ease;
+   border-radius: 5px;
+   font-weight: 900;
+   background: transparent;
+   cursor: pointer;
+   transition: all 1s ease;
+   position: relative;
+   display: inline-block;
+   outline: none;
+ }
+ 
+ /* 3 */
+ .btn-3 {
+   background: var(--primary-green);
+   padding: 1em 4em;
+   border: none;
+   
+ }
+ .btn-3 span {
+   position: relative;
+   display: block;
+   width: 100%;
+   height: 100%;
+ }
+ .btn-3:before,
+ .btn-3:after {
+   position: absolute;
+   content: "";
+   right: 0;
+   top: 0;
+    background: var(--primary-green);
+   transition: all 0.7s ease;
+ }
+ .btn-3:before {
+   height: 0%;
+   width: 2px;
+ }
+ .btn-3:after {
+   width: 0%;
+   height: 2px;
+ }
+ .btn-3:hover{
+    background: transparent;
+   box-shadow: none;
+ }
+ .btn-3:hover:before {
+   height: 100%;
+ }
+ .btn-3:hover:after {
+   width: 100%;
+ }
+ .btn-3:hover{
+    color: var(--primary-green);
+ }
+ .btn-3 .inside-container:before,
+ .btn-3 .inside-container:after {
+   position: absolute;
+   content: "";
+   left: 0;
+   bottom: 0;
+    background: var(--primary-green);
+   transition: all 0.7s ease;
+ }
+ .btn-3 .inside-container:before {
+   width: 2px;
+   height: 0%;
+ }
+ .btn-3 .inside-container:after {
+   width: 0%;
+   height: 2px;
+ }
+ .btn-3 .inside-container:hover:before {
+   height: 100%;
+ }
+ .btn-3 .inside-container:hover:after {
+   width: 100%;
+ }
+
+ .custom-btn .inside-container {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+ }
+ 
+ 

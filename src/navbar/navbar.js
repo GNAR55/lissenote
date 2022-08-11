@@ -15,7 +15,9 @@ function navbar() {
                <Link to="/">
                <div className="logo">
                   {/* <!-- Logo Placeholder for Inlustration --> */}
-                  <a href="#home"> <Logo className="logo-svg"/> </a>
+                  <HashLink smooth to ="/#landing">
+                  <Logo className="logo-svg"/>
+                  </HashLink>
                </div>
                </Link>
                {/* <!-- Navbar Links --> */}
