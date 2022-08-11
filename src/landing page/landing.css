@@ -8,6 +8,15 @@
    height: auto;
    width: 110vw;
    transform: translateX(-0.3vw);
+}@media screen and (max-width:768px) {
+   .landing-tagline-small{
+
+   }
+}@media screen and (max-width:540px) {
+   .landing-tagline-small{
+      margin-top: 20px;
+      transform: translateX(-50px);
+   }
 }
 
 .landing-main-div{
@@ -16,7 +25,7 @@
    /* outline: 1pt black solid; */
    margin: auto;
    margin-top: 5vh;
-   padding: 10px;
+   padding: 5%;
 }
 
 .landing-main-div .title{
@@ -63,6 +72,13 @@
    text-decoration: none;
    width: 50%;
    height: 50vh;
+}@media screen and (max-width:748px){
+   .landing-main-div .file-box .file-window{
+      display: none;
+   }
+   .file-or{
+      display: none;
+   }
 }
 
 .landing-main-div .file-box .file-window .file-button{

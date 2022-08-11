@@ -1,6 +1,3 @@
-/*======================================================
-                          Navbar
-  ======================================================*/
   #navbar {
    background: #ffffff;
    padding: 0.6em;
@@ -12,6 +9,18 @@
    line-height: 60px;
    width: 100%;
    z-index: 10;
+ }@media screen and (max-width: 748px){
+    #navbar {
+      padding: 0.2em;
+      padding-left: 0%;
+      line-height: 64px;
+    }
+ }@media screen and (max-width: 540px){
+    #navbar {
+      padding: 0.4em;
+      padding-left: 0%;
+      line-height: 50px;
+    }
  }
  
  .nav-wrapper {
@@ -24,7 +33,7 @@
      .nav-wrapper {
        width: 90%;
      }
-   } @media(max-width: 638px) {
+   } @media(max-width: 540px) {
        .nav-wrapper {
          width: 100%;
        }
@@ -41,9 +50,13 @@
    text-transform: uppercase;
  } @media(max-width: 768px) {
      .logo {
- /*       margin-left: 5px; */
+       margin-left: 5px;
      }
-   }
+} @media screen and (max-width: 540px) {
+    .logo{
+      margin-left: 0;
+    }
+}
  
  #navbar ul {
    display: inline-block;

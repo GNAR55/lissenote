@@ -2,7 +2,7 @@ import React from "react";
 
 import "./why.css";
 
-import Fade from 'react-reveal/Fade';
+import Slide from 'react-reveal/Slide';
 
 
 function why() {
@@ -11,7 +11,7 @@ function why() {
       <div className="why-lis">
         <p className="head">Why lissenote?</p>
         <div className="wrappup">
-          <Fade bottom>
+          <Slide bottom>
           <div className="usecase-box-wrapper">
             <div className="usecase-box">
               <p className="title">Convert anything and everything</p>
@@ -20,8 +20,8 @@ function why() {
               </div>
             </div>
           </div>
-          </Fade>
-          <Fade bottom>
+          </Slide>
+          <Slide bottom>
           <div className="usecase-box-wrapper">
             <div className="usecase-box">
               <p className="title">Missed something?</p>
@@ -30,8 +30,8 @@ function why() {
               </div>
             </div>
           </div>
-          </Fade>
-          <Fade bottom>
+          </Slide>
+          <Slide bottom>
           <div className="usecase-box-wrapper">
             <div className="usecase-box">
               <p className="title">Lorem Ipsum</p>
@@ -40,7 +40,7 @@ function why() {
               </div>
             </div>
           </div>
-          </Fade>
+          </Slide>
         </div>
       </div>
     </div>
