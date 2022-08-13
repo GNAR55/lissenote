@@ -2,10 +2,9 @@ import React from 'react'
 import "./team.css"
 
 import pic from '../assets/pfp.svg';
-import linked from '../assets/linkedin.svg';
-import git from '../assets/github.svg';
-import mail from '../assets/mail.svg';
-import { Fade } from 'react-reveal';
+import {ReactComponent as Linked} from '../assets/linkedin.svg';
+import {ReactComponent as Mail} from '../assets/mail.svg';
+import {ReactComponent as Git} from '../assets/github.svg';
 
 function team() {
   return (
@@ -34,9 +33,15 @@ function Teamcard(props) {
         <img className='pfp' src={props.pfp} alt="profile-pic" />
         <div className="team-name">{props.name}</div>
         <div className="logo-wrapper">
-          <img className='linked' src={linked} alt="linkedin" />
-          <img className='mail' src={mail} alt="mail" />
-          <img className='git' src={git} alt="github" />
+        <a href="">
+          <Linked className='logo'/>
+          </a>
+          <a href="">
+          <Mail className='logo'/>
+          </a>
+          <a href="">
+          <Git className='logo'/>
+          </a>
         </div>
       </div>
       // </Fade>

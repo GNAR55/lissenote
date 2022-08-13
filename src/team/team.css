@@ -62,3 +62,14 @@
    align-items: center;
    justify-content: space-around
 }
+
+.team-div .logo{
+   cursor: pointer;
+   opacity: 0.8;
+   height: 60px;
+   width: 65px;
+}
+
+.team-div .logo:hover {
+   opacity: 1;
+}
