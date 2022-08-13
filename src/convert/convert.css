@@ -1,10 +1,12 @@
 .convert-div{
    padding: 2em 1em;
    margin-top: 90px;
-   border-top: 3px solid rgb(192, 191, 191);
    height: 100vh;
 }
 
+#navbar{
+  border-bottom: 3px solid rgb(192, 191, 191);
+}
 .convert-div .convert-btn{
   width: 400px;
 }

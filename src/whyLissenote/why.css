@@ -27,14 +27,27 @@
 
 .usecase-box-wrapper{
   max-width: 400px;
-  background-color: #66BAA7;
   margin: 20px;
+  z-index: -100;
 }
 
 .usecase-box{
-  background-color: rgba(102, 186, 167, 0.55);
+  background-color: rgb(220 255 247 / 55%);
   height: 95%;
   padding: 1em 2em 1em 1em;
+  z-index: 100;
+}
+
+.usecase-box::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #66BAA7;
+  z-index: -100;
+  transform-origin: top left;
 }
 
 .usecase-box .title{

@@ -49,7 +49,6 @@ render() {
             </div>
             <input value={this.state.value} onChange={this.handleChange} className='youtube-link'/>
             <div className="button-holder">
-               {/* <input type="submit" value="Convert" className='submit-button'/> */}
                <button type="submit" class="custom-btn btn-3">
                <span>Convert</span>
                <div className='inside-container'> </div>

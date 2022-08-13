@@ -19,17 +19,13 @@ export default function landing() {
     <div id='landing' className='landing-div'>
       <LandingSVG/>
       <div className="landing-main-div">
-            <Slide bottom>
             <div className="title">
                Audio File
             </div>
             <div className="subtitle">
                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id dapibus elit,  facilisis faucibus purus.
             </div>
-            </Slide>
-            <Slide bottom>
             <Form/>
-            </Slide>
       </div>
     </div>
   )
