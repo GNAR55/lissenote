@@ -29,7 +29,7 @@ function team() {
 
 function Teamcard(props) {
   return (
-    <Fade big>
+    // <Fade big>
       <div className='team-card'>
         <img className='pfp' src={props.pfp} alt="profile-pic" />
         <div className="team-name">{props.name}</div>
@@ -39,7 +39,7 @@ function Teamcard(props) {
           <img className='git' src={git} alt="github" />
         </div>
       </div>
-      </Fade>
+      // </Fade>
   );
 }
 
