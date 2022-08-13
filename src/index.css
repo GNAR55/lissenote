@@ -33,3 +33,22 @@
    font-size: inherit;
    text-decoration: none;
  }
+
+ /* custom scrollbar */
+   ::-webkit-scrollbar {
+      width: 10px;
+   }
+   ::-webkit-scrollbar-thumb {
+      background: #66BAA7;
+      border-radius: 1px;
+   }
+   ::-webkit-scrollbar-thumb:window-inactive {
+      background: rgba(78, 134, 121, 0.8);
+   }
+   ::-webkit-scrollbar-thumb:hover {
+      background: rgba(78, 134, 121, 1);
+   }
+   ::-webkit-scrollbar-thumb:active {
+      background: rgba(78, 134, 121, 1);
+   }
+

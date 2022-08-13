@@ -173,8 +173,8 @@ button {
    padding: 1em 4em;
    margin-bottom: 3em;
    transition: all .5s;
-   -webkit-transition: all 0.7s ease;
-   transition: all 0.7s ease;
+   -webkit-transition: all 0.5s ease;
+   transition: all 0.5s ease;
    border-radius: 5px;
    font-weight: 900;
    background: transparent;
@@ -205,7 +205,7 @@ button {
    right: 0;
    top: 0;
     background: var(--primary-green);
-   transition: all 0.7s ease;
+   transition: all 0.5s ease;
  }
  .btn-3:before {
    height: 0%;
@@ -235,7 +235,7 @@ button {
    left: 0;
    bottom: 0;
     background: var(--primary-green);
-   transition: all 0.7s ease;
+   transition: all 0.5s ease;
  }
  .btn-3 .inside-container:before {
    width: 2px;

@@ -1,31 +1,11 @@
 import React from 'react'
 import "./team.css"
 
-import pic from '../assets/user.png';
-import linked from '../assets/linkedin.png';
-import git from '../assets/github.png';
-import mail from '../assets/mail.png';
-
-function Teamcard(props) {
-    return (
-        <div className='team-card'>
-            <img className='pfp' src={props.pfp} alt="Team-members"/>
-            <p className='name'>{props.name}</p>
-            <div className='links'>
-                <a className='linked' href={props.linked}>
-                    <img className='linkedin' src={linked} alt="linkedin"/>
-                </a>
-                <a href='#'>
-                    <img className='mail' src={mail} alt="linkedin"/>
-                </a>
-                <a href='#'>
-                    <img className='git' src={git} alt="linkedin"/>
-                </a>
-            </div>
-        </div>
-    );
-}
-
+import pic from '../assets/pfp.svg';
+import linked from '../assets/linkedin.svg';
+import git from '../assets/github.svg';
+import mail from '../assets/mail.svg';
+import { Fade } from 'react-reveal';
 
 function team() {
   return (
@@ -33,7 +13,7 @@ function team() {
       <div className='team-compo'>
         <p className='head'>The Team</p>
         <div className='team'>
-          <div className='temp'>
+          <div className='team-wrapper'>
             <Teamcard pfp={pic} name="Lorem Ipsum" linked="#"/>
             <Teamcard pfp={pic} name="Lorem Ipsum" linked="#"/>
             <Teamcard pfp={pic} name="Lorem Ipsum" linked="#"/>
@@ -46,5 +26,22 @@ function team() {
     </div>
   )
 }
+
+function Teamcard(props) {
+  return (
+    <Fade big>
+      <div className='team-card'>
+        <img className='pfp' src={props.pfp} alt="profile-pic" />
+        <div className="team-name">{props.name}</div>
+        <div className="logo-wrapper">
+          <img className='linked' src={linked} alt="linkedin" />
+          <img className='mail' src={mail} alt="mail" />
+          <img className='git' src={git} alt="github" />
+        </div>
+      </div>
+      </Fade>
+  );
+}
+
 
 export default team;

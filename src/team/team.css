@@ -1,12 +1,12 @@
 .team-div{
-   background-color: #B796A7;
+   background-color: #66BAA7;
    padding: 2em 1em;
    min-height: 90vh;
  }
 
 .team-div .head {
    text-align: center;
-   color: #212121;
+   color: #ffffff;
    font-size: 2.5em;
    font-weight: 200;
    padding-bottom: 1em;
@@ -15,86 +15,50 @@
          padding-bottom: 0.5em;
       }
  }
-
-.team-div .team-card{
-   background-color: #EBCCDC;;
-}
- .pfp {
-   display: flex;
-   margin-left: auto;
-   margin-right: auto;
-   padding-top: 12%;
-}
-
-.name{
-   text-align: center;
-   font-size: 40px;
-   padding-top: 3%;
-   padding-bottom: 3%;
-   color: #744B60;
-   font-family: 'Nunito', sans-serif;
-}
-
-.links {
-   display: flex;
-   padding-top: 5%;
-   padding-bottom: 5%;
-   padding-left: 5%;
-}
-
-.links > *{
-   margin-left: 7%;
-   margin-right: 7%;
-}
-
-.linkedin, .git {
-   width: 80%;
-}
-
-.mail {
-   width: 85%;
-   height: 85%;
-}
-
-.pfp {
-   width: 25%;
-}
-
-@media screen and (max-width:768px) {
-   .linkedin, .git {
-       width: 80%;
-   }
-
-   .mail {
-       width: 85%;
-       height: 85%;
-   }
-
-   .pfp {
-       width: 20%;
-   }
-
-   .name{
-       font-size: 25px;
-       padding-top: 3%;
-       padding-bottom: 3%;
-   }
-
-
-}
-
-
-@media only screen and (device-width: 626px) {
-
-   .links > *{
-       margin-left: 10%;
-       margin-right: 10%;
-   }
-   
-   .name{
-       font-size: 27px;
-       padding-top: 5%;
-       padding-bottom: 3%;
-   }
  
- }
+.team-div .team-wrapper{
+   display: flex;
+   flex-wrap: wrap;
+   column-gap: 20px;
+   gap: 2%;
+   /* align-items: center; */
+   justify-content: center;
+}
+
+.team-wrapper .team-card{
+   width: 350px;
+   margin: 20px;
+   padding: 20px;
+   background-color: #ffffff;
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   gap: 10%;
+   transition: 0.1s;
+   border-radius: 5px;
+}@media screen and (max-width: 540px){
+   .team-wrapper .team-card{
+      transform: scale(0.9);
+      font-size: 1.5em;
+   }
+}
+.team-wrapper .team-card:hover{
+   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+   transform: scale(1.01);
+}
+   
+.team-name{
+   font-size: 1.8em;
+   line-height: 1.5em;
+   color: #212121;
+   padding-top: 5%;
+   padding-bottom: 3%;
+}
+
+.logo-wrapper{
+   transform: scale(0.8);
+   display: flex;
+   gap: 30%;
+   align-items: center;
+   justify-content: space-around
+}
