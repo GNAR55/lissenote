@@ -38,10 +38,9 @@
          width: 100%;
        }
      } 
- 
- 
- .logo {
-   color: var(--primary-green);
+
+
+.nav-wrapper .logo {
    float: left;
    margin-left: 28px;
    font-size: 1.5em;

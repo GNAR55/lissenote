@@ -1,0 +1,21 @@
+.convert-div{
+   padding: 2em 1em;
+   margin-top: 90px;
+   border-top: 3px solid rgb(192, 191, 191);
+   height: 100vh;
+}
+
+.convert-div .convert-btn{
+  width: 400px;
+}
+
+.convert-div .btn-wrapper{
+  display: flex;
+  outline: 1px solid #ccc;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content:space-around;
+  max-width: 1000px;
+  margin: auto;
+}
+
