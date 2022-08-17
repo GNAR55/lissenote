@@ -2,8 +2,10 @@ import React from 'react'
 import { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import {Routes, Route, useNavigate} from 'react-router-dom';
+// import axios from 'axios';
 
 import "./landing.css"
+import "./form.css"
 
 function WithNavigate(props) {
    let navigate = useNavigate();
@@ -12,6 +14,7 @@ function WithNavigate(props) {
 
 export default WithNavigate
 
+let file, fileName, link;
 class Form extends React.Component {
    constructor(props) {
       super(props);
@@ -21,13 +24,23 @@ class Form extends React.Component {
 }
 handleChange(event) {
  this.setState({value: event.target.value});
+ document.querySelector(".youtube-link").style = "color: black";
+ if (event.target.value.includes("youtube.com")) {
+   link = event.target.value;
+   document.querySelector(".youtube-link").style = "color: black";
+ }
+ else{
+   document.querySelector(".youtube-link").style = "color: red";
+ }
 }
 
 handleSubmit(event) {
-   alert('A name was submitted: ' + this.state.value);
-   // navigating to '/convert' on pressing the convert button
-   this.props.navigate('/convert');
-   console.log("submitted")
+   link = this.state.value;
+   if (link !== "" && fileName !== "" && file !== null) {
+       
+   } 
+   this.props.navigate('/convert', {state: {link: link, file: file, fileName: fileName}});
+   console.log("submitted");
    event.preventDefault();
 }
 
@@ -61,7 +74,7 @@ render() {
 
 
 function DragAndDrop() {
-const fileTypes = ["JPEGs", "PNG", "GIF"];
+const fileTypes = ["MP3", "WAV", "MP4", "MKV"];
 const [file, setFile] = useState(null);
    const handleChange = (file) => {
       setFile(file);
@@ -86,8 +99,14 @@ state = {
    selectedFile: null,
 }
 onFileChange = event => {
-   this.setState({selectedFile : event.target.files[0]})
-   console.log(event.target.files[0])
+   file = event.target.files[0];
+   fileName = event.target.files[0].name
+   document.querySelector('.file-window .file-button').innerHTML ='';
+   document.querySelector('.file-window .file-button').innerHTML = `
+   <div class='file-upload-svg-name'>
+   <div> <img src=${require("../assets/file.png")} alt="file-upload" class="upload-file-img"/> </div>
+   ${fileName}
+   <div>`;
 }
 onFileUpload = () => {
 }
@@ -114,9 +133,11 @@ fileData = () => {
 render() {
    return (
       <label class="custom-file-upload">
-      <input type="file" onChange={this.onFileChange} className="file-button"/>
-      Browse Files
+      <input type="file" onChange={this.onFileChange} className="file-button"
+         accept="audio/*, video/*" />
+         Browse Files
       </label>
+      
    )
 }
 }

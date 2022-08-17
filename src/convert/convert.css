@@ -13,7 +13,8 @@
 
 .convert-div .btn-wrapper{
   display: flex;
-  outline: 1px solid #ccc;
+  /* outline: 1px solid #ccc; */
+  padding-top: 40px;
   flex-wrap: wrap;
   align-items: center;
   justify-content:space-around;
