@@ -1,8 +1,7 @@
 import React from "react";
 
 import Preview from "./preview.jsx";
-import axios from 'axios';
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { saveAs } from 'file-saver';
 import { Document } from 'react-pdf'
 import { useState, useEffect } from 'react';
@@ -14,11 +13,13 @@ import { render } from "@testing-library/react";
 
 var blobUrl;
 // https://www.youtube.com/watch?v=gnlx5ueT2AU
-function downloadPDF(){
-
+function downloadPDF(props) {
+  const file = blobUrl;
+  const fileName = "lissenote.pdf";
+  saveAs(file, fileName);
 }
 
-function GetPDF(props){
+function GetPDF(props) {
   // const [pdfUrl, setpdfUrl] = useState('');
   const ytlink = props.link;
   const file = props.file;
@@ -42,11 +43,15 @@ function GetPDF(props){
       // setpdfUrl(url);
       window.open(url);
       blobUrl = url;
-      render(
-          <Preview pdfUrl={blobUrl}/>
-      )
-      })
-      .catch((er) => console.log(er))
+      const loadingScreen = document.querySelector('.loading-screen');
+      loadingScreen.style.display = 'none';
+      const convertDiv = document.querySelector(".pdf-frame-container");
+      const pdfFrame = document.createElement("iframe");
+      pdfFrame.src = url;
+      pdfFrame.className = "pdf-frame";
+      convertDiv.appendChild(pdfFrame);
+    })
+    .catch((er) => console.log(er))
 }
 
 function Convert() {
@@ -55,7 +60,7 @@ function Convert() {
   const file = location.state.file;
   const fileName = location.state.fileName;
   useEffect(() => {
-    GetPDF({link: ytlink, file: file, fileName: fileName});
+    GetPDF({ link: ytlink, file: file, fileName: fileName });
   }, []);
 
   return (
@@ -72,6 +77,14 @@ function Convert() {
             <span>Download PDF</span>
             <div className="inside-container"> </div>
           </button>
+        </div>
+      </div>
+      {/* <Preview pdfUrl={blobUrl}/> */}
+      <div className="pdf-frame-container">
+        <div className="loading-screen">
+          <div className="loading-text">
+            Loading....
+          </div>
         </div>
       </div>
     </div>
