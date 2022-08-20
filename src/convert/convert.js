@@ -1,10 +1,11 @@
 import React from "react";
 
-import Preview from "./preview.jsx";
 import { useLocation } from 'react-router-dom';
 import { saveAs } from 'file-saver';
 import { Document } from 'react-pdf'
 import { useState, useEffect } from 'react';
+// import {Routes, Route, useNavigate} from 'react-router-dom';
+import { Link } from "react-router-dom"
 
 
 import "../landing page/landing.css";
@@ -13,10 +14,15 @@ import { render } from "@testing-library/react";
 
 var blobUrl;
 // https://www.youtube.com/watch?v=gnlx5ueT2AU
+
 function downloadPDF(props) {
   const file = blobUrl;
   const fileName = "lissenote.pdf";
   saveAs(file, fileName);
+}
+
+function NavigateToHome() {
+  // useNavigate('/lissenote');
 }
 
 function GetPDF(props) {
@@ -55,7 +61,7 @@ function GetPDF(props) {
     .catch((er) => console.log(er))
   }
   else if (file){
-    const url = 'http://localhost:5000/file';
+    const url = 'http://localhost:5000/audio';
     const formData = new FormData();
     formData.append('audio', file);
     formData.append('fileName', fileName);
@@ -95,10 +101,12 @@ function Convert() {
     <div className="convert-div">
       <div className="btn-wrapper">
         <div className="button-holder">
-          <button type="submit" class="custom-btn btn-3 convert-btn">
+        <Link to='/'>
+          <button type="submit" onClick={NavigateToHome} class="custom-btn btn-3 convert-btn">
             <span>Convert More</span>
             <div className="inside-container"> </div>
           </button>
+          </Link>
         </div>
         <div className="button-holder">
           <button type="submit" onClick={downloadPDF} class="custom-btn btn-3 convert-btn">
