@@ -28,6 +28,7 @@ function GetPDF(props) {
   console.log(file);
   console.log(fileName);
   // make a fetch post request 
+  if (ytlink){
   const url = 'http://localhost:5000/yt';
   const formData = new FormData();
   formData.append('url', ytlink);
@@ -41,7 +42,7 @@ function GetPDF(props) {
     .then((blob) => URL.createObjectURL(blob))
     .then((url) => {
       // setpdfUrl(url);
-      window.open(url);
+      // window.open(url);
       blobUrl = url;
       const loadingScreen = document.querySelector('.loading-screen');
       loadingScreen.style.display = 'none';
@@ -52,6 +53,33 @@ function GetPDF(props) {
       convertDiv.appendChild(pdfFrame);
     })
     .catch((er) => console.log(er))
+  }
+  else if (file){
+    const url = 'http://localhost:5000/file';
+    const formData = new FormData();
+    formData.append('audio', file);
+    formData.append('fileName', fileName);
+    formData.append('responseType', 'arraybuffer')
+    const options = {
+      method: 'POST',
+      body: formData
+    }
+    fetch(url, options)
+      .then((response) => response.blob())
+      .then((blob) => URL.createObjectURL(blob))
+      .then((url) => {
+        // setpdfUrl(url);
+        // window.open(url);
+        blobUrl = url;
+        const loadingScreen = document.querySelector('.loading-screen');
+        loadingScreen.style.display = 'none';
+        const convertDiv = document.querySelector(".pdf-frame-container");
+        const pdfFrame = document.createElement("iframe");
+        pdfFrame.src = url;
+        pdfFrame.className = "pdf-frame";
+        convertDiv.appendChild(pdfFrame);
+      }).catch((er) => console.log(er))
+  }
 }
 
 function Convert() {
@@ -82,8 +110,15 @@ function Convert() {
       {/* <Preview pdfUrl={blobUrl}/> */}
       <div className="pdf-frame-container">
         <div className="loading-screen">
-          <div className="loading-text">
-            Loading....
+          <div id="beiwe-loading-div">
+            <div class="spinner beiwe-loading-image">
+              Loading
+              <div class="spinner-sector spinner-sector-red"></div>
+              <div class="spinner-sector spinner-sector-blue"></div>
+              <div class="spinner-sector spinner-sector-green"></div>
+            </div>
+            <br />
+            <br />
           </div>
         </div>
       </div>
