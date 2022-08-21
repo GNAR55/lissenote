@@ -2,7 +2,7 @@
   "name": "lissenote",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gnar55.github.io/lissenote",
+  "homepage": "https://welf06.github.io/lissenote",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

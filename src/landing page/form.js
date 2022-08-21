@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 // import axios from 'axios';
 
 import "./landing.css"

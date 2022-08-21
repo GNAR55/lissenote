@@ -2,15 +2,13 @@ import React from "react";
 
 import { useLocation } from 'react-router-dom';
 import { saveAs } from 'file-saver';
-import { Document } from 'react-pdf'
-import { useState, useEffect } from 'react';
+import {  useEffect } from 'react';
 // import {Routes, Route, useNavigate} from 'react-router-dom';
 import { Link } from "react-router-dom"
 
 
 import "../landing page/landing.css";
 import "./convert.css";
-import { render } from "@testing-library/react";
 
 var blobUrl;
 // https://www.youtube.com/watch?v=gnlx5ueT2AU
@@ -95,7 +93,7 @@ function Convert() {
   const fileName = location.state.fileName;
   useEffect(() => {
     GetPDF({ link: ytlink, file: file, fileName: fileName });
-  }, []);
+  }, [ytlink, file, fileName]);
 
   return (
     <div className="convert-div">
