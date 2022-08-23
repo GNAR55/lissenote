@@ -20,7 +20,7 @@ function App() {
       <Routes>
       <Route
             exact
-            path="/home"
+            path="/"
             element={
               <div>
                   <Landing />
