@@ -59,7 +59,7 @@ function GetPDF(props) {
     .catch((er) => console.log(er))
   }
   else if (file){
-    const url = 'http://localhost:5000/audio';
+    const url = 'http://localhost:5000/audiotopdf';
     const formData = new FormData();
     formData.append('audio', file);
     formData.append('fileName', fileName);
