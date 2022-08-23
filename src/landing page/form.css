@@ -10,3 +10,10 @@
    height: auto;
    padding-bottom: 20px;
 }
+
+.button-holder{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   margin-top: 1em;
+}

@@ -28,9 +28,13 @@ function GetPDF(props) {
   const ytlink = props.link;
   const file = props.file;
   const fileName = props.fileName;
+  const toPDF = props.toPDF;
+
   console.log(ytlink);
   console.log(file);
   console.log(fileName);
+  console.log(toPDF);
+
   // make a fetch post request 
   if (ytlink){
   const url = 'http://localhost:5000/yt';
@@ -58,8 +62,35 @@ function GetPDF(props) {
     })
     .catch((er) => console.log(er))
   }
-  else if (file){
+  else if (file && toPDF){
     const url = 'http://localhost:5000/audiotopdf';
+    const formData = new FormData();
+    formData.append('audio', file);
+    formData.append('fileName', fileName);
+    formData.append('responseType', 'arraybuffer')
+    const options = {
+      method: 'POST',
+      body: formData
+    }
+    fetch(url, options)
+      .then((response) => response.blob())
+      .then((blob) => URL.createObjectURL(blob))
+      .then((url) => {
+        // setpdfUrl(url);
+        // window.open(url);
+        blobUrl = url;
+        const loadingScreen = document.querySelector('.loading-screen');
+        loadingScreen.style.display = 'none';
+        const convertDiv = document.querySelector(".pdf-frame-container");
+        const pdfFrame = document.createElement("iframe");
+        pdfFrame.src = url;
+        pdfFrame.className = "pdf-frame";
+        convertDiv.appendChild(pdfFrame);
+      }).catch((er) => console.log(er))
+  }
+
+  else if (file && !toPDF){
+    const url = 'http://localhost:5000/audiotodocx';
     const formData = new FormData();
     formData.append('audio', file);
     formData.append('fileName', fileName);
@@ -91,9 +122,11 @@ function Convert() {
   const ytlink = location.state.link;
   const file = location.state.file;
   const fileName = location.state.fileName;
+  const toPDF = location.state.toPDF;
+
   useEffect(() => {
-    GetPDF({ link: ytlink, file: file, fileName: fileName });
-  }, [ytlink, file, fileName]);
+    GetPDF({ link: ytlink, file: file, fileName: fileName, toPDF: toPDF });
+  }, [ytlink, file, fileName, toPDF]);
 
   return (
     <div className="convert-div">

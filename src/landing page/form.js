@@ -18,10 +18,11 @@ let file, fileName, link;
 class Form extends React.Component {
    constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {value: '', pdf: true};
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
 }
+
 handleChange(event) {
  this.setState({value: event.target.value});
  document.querySelector(".youtube-link").style = "color: black";
@@ -39,7 +40,7 @@ handleSubmit(event) {
    if (link !== "" && fileName !== "" && file !== null) {
        
    } 
-   this.props.navigate('/convert', {state: {link: link, file: file, fileName: fileName}});
+   this.props.navigate('/convert', {state: {link: link, file: file, fileName: fileName, toPDF: this.state.pdf}});
    console.log("submitted");
    event.preventDefault();
 }
@@ -63,7 +64,14 @@ render() {
             <input value={this.state.value} onChange={this.handleChange} className='youtube-link'/>
             <div className="button-holder">
                <button type="submit" class="custom-btn btn-3">
-               <span>Convert</span>
+               <span>Convert to PDF</span>
+               <div className='inside-container'> </div>
+               </button>
+               <button type="submit" class="custom-btn btn-3" onClick={() => (
+                  this.setState({
+                     pdf: false
+                  }))}>
+               <span>Convert to DOCX</span>
                <div className='inside-container'> </div>
                </button>
             </div>
