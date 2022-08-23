@@ -33,13 +33,13 @@ function Teamcard(props) {
         <img className='pfp' src={props.pfp} alt="profile-pic" />
         <div className="team-name">{props.name}</div>
         <div className="logo-wrapper">
-        <a href="">
+        <a href="www.gooogle.co.in">
           <Linked className='logo'/>
           </a>
-          <a href="">
+          <a href="www.gooogle.co.in">
           <Mail className='logo'/>
           </a>
-          <a href="">
+          <a href="www.gooogle.co.in">
           <Git className='logo'/>
           </a>
         </div>
