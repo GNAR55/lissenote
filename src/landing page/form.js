@@ -150,7 +150,7 @@ render() {
    return (
       <label class="custom-file-upload">
       <input type="file" onChange={this.onFileChange} className="file-button"
-         accept="audio/*, video/*" />
+         accept="audio/*, video/*, .mkv" />
          Browse Files
       </label>
       

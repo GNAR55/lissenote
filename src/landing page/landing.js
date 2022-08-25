@@ -20,7 +20,7 @@ export default function landing() {
       <LandingSVG/>
       <div className="landing-main-div">
             <div className="title">
-               Audio File
+               Audio / Video File
             </div>
             <div className="subtitle">
                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id dapibus elit,  facilisis faucibus purus.
