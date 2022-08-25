@@ -15,8 +15,8 @@ var blobUrl;
 
 function downloadPDF(props) {
   const file = blobUrl;
-  const fileName = "lissenote.pdf";
-  saveAs(file, fileName);
+  const fileN = `{fileName}.pdf`;
+  saveAs(file, fileN);
 }
 
 function NavigateToHome() {
