@@ -3,6 +3,8 @@ import Slide from 'react-reveal/Slide';
 
 import "./landing.css"
 import Form from './form.js'
+import Audio from './audioRecorder.jsx'
+
 import {ReactComponent as Heading} from './landing-tagline.svg'
 import {ReactComponent as HeadingSmall} from './landing-tagline-small.svg'
 
@@ -26,6 +28,7 @@ export default function landing() {
                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id dapibus elit,  facilisis faucibus purus.
             </div>
             <Form/>
+            <Audio/>
       </div>
     </div>
   )
