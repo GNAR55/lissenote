@@ -18,3 +18,20 @@
    margin-top: 1em;
    flex-wrap: wrap;
 }
+
+.or{
+   text-align: center;
+   padding: 1em 0;
+   margin: auto;
+}
+
+.or-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   width: 100%;
+   margin: auto;
+   font-size: 1.5em;
+   font-weight: bold;
+}

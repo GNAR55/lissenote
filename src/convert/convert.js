@@ -32,6 +32,7 @@ function GetPDF(props) {
   const file = props.file;
   const fileName = props.fileName;
   const toPDF = props.toPDF;
+  const fromRecording = props.fromRecording;
 
   console.log(ytlink);
   console.log(file);
@@ -60,7 +61,19 @@ function GetPDF(props) {
     .catch((er) => console.log(er))
   }
   // make a fetch post request 
-  if (ytlink && toPDF ){
+  if (fromRecording){
+    const url = "http://localhost:5000/audiotopdf"
+    const formData = new FormData();
+    formData.append('audio', file);
+    formData.append('fileName', 'recording');
+    const options = {
+      method: 'POST',
+      body: formData
+    }
+    fetchRequest(url, options);
+  }
+  
+  else if (ytlink && toPDF ){
   const url = 'http://localhost:5000/yttopdf';
   const formData = new FormData();
   formData.append('url', ytlink);

@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import {useNavigate} from 'react-router-dom';
+
+
 // import axios from 'axios';
 
 import "./landing.css"
@@ -54,6 +56,9 @@ render() {
                   or
                </div>
                <DragAndDrop/>
+         </div>
+         <div className="or-container">
+         <span className='or'> OR </span>
          </div>
             <div className="title">
                Youtube Link
@@ -157,3 +162,5 @@ render() {
    )
 }
 }
+
+

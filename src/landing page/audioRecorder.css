@@ -1,0 +1,39 @@
+.audio-div{
+   text-align: center;
+}
+.audio-player{
+   width: 500px;
+   margin: 20px 0;
+}
+
+.audio-holder{
+   text-align: center;
+}
+
+.audio-div .button-holder{
+   border-radius: 50%;
+   cursor: pointer;
+   border: #212121 1pt solid;
+   background-color: #eeeeee;
+   width: 150px;
+   height: 150px;
+   margin: 20px auto;
+}
+
+.mic{
+   cursor: pointer;
+   opacity: 1;
+}
+
+.mic-animation{
+   animation: mic-animation 1.5s infinite;
+}
+
+@keyframes mic-animation{
+   0%{
+      transform: rotate(0deg);
+   }
+   100%{
+      transform: rotate(360deg);
+   }
+}
