@@ -11,6 +11,7 @@ import Example from './examples/examples.js';
 import WhyLissenote from './whyLissenote/why.js';
 import Team from './team/team.js';
 import Convert from './convert/convert.js';
+import Audio from './audioRecorder/audioRecorder.jsx'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             element={
               <div>
                   <Landing />
+                  {/* <Audio /> */}
                   <Example />
                   <WhyLissenote />
                   <Team /> 
