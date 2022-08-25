@@ -108,6 +108,10 @@
 }
 
 .fVfcRr .file-types{
+      overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    max-width: 300px !important;
    color: #393838 !important;
    padding: 10px !important;
    font-size: 0.6em !important;

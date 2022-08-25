@@ -15,8 +15,8 @@ var blobUrl;
 
 function downloadPDF(props) {
   const file = blobUrl;
-  const fileName = "lissenote.pdf";
-  saveAs(file, fileName);
+  const fileN = `{fileName}.pdf`;
+  saveAs(file, fileN);
 }
 
 function NavigateToHome() {
@@ -38,6 +38,7 @@ function GetPDF(props) {
     document.querySelector("#download-button").innerHTML = "<span>Download DOCX</span>";
   }
   const fetchRequest = (url , options) => {
+    console.log(`sending request to ${url}`);
     fetch(url, options)
     .then((response) => response.blob())
     .then((blob) => URL.createObjectURL(blob))

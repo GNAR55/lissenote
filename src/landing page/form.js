@@ -88,8 +88,13 @@ function DragAndDrop() {
 const fileTypes = ["MP3", "WAV", "MP4", "MKV"];
 const [file, setFile] = useState(null);
    const handleChange = (file) => {
+      // setFile(file);
+      // console.log(file[0].name)
+      file = file[0];
       setFile(file);
-      console.log(file[0].name)
+      console.log(file);
+      fileName = file.name
+      console.log(fileName);
 };
 return (
          <div className="file-window">
