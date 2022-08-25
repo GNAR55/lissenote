@@ -38,6 +38,7 @@ function GetPDF(props) {
     document.querySelector("#download-button").innerHTML = "<span>Download DOCX</span>";
   }
   const fetchRequest = (url , options) => {
+    console.log(`sending request to ${url}`);
     fetch(url, options)
     .then((response) => response.blob())
     .then((blob) => URL.createObjectURL(blob))
