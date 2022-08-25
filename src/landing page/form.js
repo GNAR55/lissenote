@@ -64,6 +64,8 @@ render() {
             <input value={this.state.value} onChange={this.handleChange} className='youtube-link'/>
             <div className="button-holder">
                <button type="submit" class="custom-btn btn-3">
+                  {/* add a pdf logo svg */}
+                  
                <span>Convert to PDF</span>
                <div className='inside-container'> </div>
                </button>
@@ -71,6 +73,7 @@ render() {
                   this.setState({
                      pdf: false
                   }))}>
+                     {/* add a docx logo svg */}
                <span>Convert to DOCX</span>
                <div className='inside-container'> </div>
                </button>

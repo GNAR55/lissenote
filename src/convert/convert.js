@@ -3,7 +3,7 @@ import React from "react";
 import { useLocation } from 'react-router-dom';
 import { saveAs } from 'file-saver';
 import {  useEffect } from 'react';
-// import {Routes, Route, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { Link } from "react-router-dom"
 
 
@@ -20,7 +20,7 @@ function downloadPDF(props) {
 }
 
 function NavigateToHome() {
-  // useNavigate('/lissenote');
+  useNavigate('/lissenote');
 }
 
 function GetPDF(props) {
@@ -34,18 +34,11 @@ function GetPDF(props) {
   console.log(file);
   console.log(fileName);
   console.log(toPDF);
-
-  // make a fetch post request 
-  if (ytlink){
-  const url = 'http://localhost:5000/yt';
-  const formData = new FormData();
-  formData.append('url', ytlink);
-  formData.append('responseType', 'arraybuffer')
-  const options = {
-    method: 'POST',
-    body: formData
+  if (!toPDF){
+    document.querySelector("#download-button").innerHTML = "<span>Download DOCX</span>";
   }
-  fetch(url, options)
+  const fetchRequest = (url , options) => {
+    fetch(url, options)
     .then((response) => response.blob())
     .then((blob) => URL.createObjectURL(blob))
     .then((url) => {
@@ -62,6 +55,30 @@ function GetPDF(props) {
     })
     .catch((er) => console.log(er))
   }
+  // make a fetch post request 
+  if (ytlink && toPDF ){
+  const url = 'http://localhost:5000/yttopdf';
+  const formData = new FormData();
+  formData.append('url', ytlink);
+  formData.append('responseType', 'arraybuffer')
+  const options = {
+    method: 'POST',
+    body: formData
+  }
+  fetchRequest(url, options)
+  }
+  else if (ytlink && !toPDF ){
+    const url = 'http://localhost:5000/yttodocx';
+    const formData = new FormData();
+    formData.append('url', ytlink);
+    formData.append('responseType', 'arraybuffer')
+    const options = {
+      method: 'POST',
+      body: formData
+    }
+    fetchRequest(url, options)
+    }
+
   else if (file && toPDF){
     const url = 'http://localhost:5000/audiotopdf';
     const formData = new FormData();
@@ -72,21 +89,7 @@ function GetPDF(props) {
       method: 'POST',
       body: formData
     }
-    fetch(url, options)
-      .then((response) => response.blob())
-      .then((blob) => URL.createObjectURL(blob))
-      .then((url) => {
-        // setpdfUrl(url);
-        // window.open(url);
-        blobUrl = url;
-        const loadingScreen = document.querySelector('.loading-screen');
-        loadingScreen.style.display = 'none';
-        const convertDiv = document.querySelector(".pdf-frame-container");
-        const pdfFrame = document.createElement("iframe");
-        pdfFrame.src = url;
-        pdfFrame.className = "pdf-frame";
-        convertDiv.appendChild(pdfFrame);
-      }).catch((er) => console.log(er))
+    fetchRequest(url, options)
   }
 
   else if (file && !toPDF){
@@ -99,21 +102,7 @@ function GetPDF(props) {
       method: 'POST',
       body: formData
     }
-    fetch(url, options)
-      .then((response) => response.blob())
-      .then((blob) => URL.createObjectURL(blob))
-      .then((url) => {
-        // setpdfUrl(url);
-        // window.open(url);
-        blobUrl = url;
-        const loadingScreen = document.querySelector('.loading-screen');
-        loadingScreen.style.display = 'none';
-        const convertDiv = document.querySelector(".pdf-frame-container");
-        const pdfFrame = document.createElement("iframe");
-        pdfFrame.src = url;
-        pdfFrame.className = "pdf-frame";
-        convertDiv.appendChild(pdfFrame);
-      }).catch((er) => console.log(er))
+    fetchRequest(url, options)
   }
 }
 
@@ -140,7 +129,7 @@ function Convert() {
           </Link>
         </div>
         <div className="button-holder">
-          <button type="submit" onClick={downloadPDF} class="custom-btn btn-3 convert-btn">
+          <button type="submit" id="download-button" onClick={downloadPDF} class="custom-btn btn-3 convert-btn">
             <span>Download PDF</span>
             <div className="inside-container"> </div>
           </button>

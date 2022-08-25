@@ -13,12 +13,12 @@ function team() {
         <p className='head'>The Team</p>
         <div className='team'>
           <div className='team-wrapper'>
-            <Teamcard pfp={pic} name="Lorem Ipsum" linked="#"/>
-            <Teamcard pfp={pic} name="Lorem Ipsum" linked="#"/>
-            <Teamcard pfp={pic} name="Lorem Ipsum" linked="#"/>
-            <Teamcard pfp={pic} name="Lorem Ipsum" linked="#"/>
-            <Teamcard pfp={pic} name="Lorem Ipsum" linked="#"/>
-            <Teamcard pfp={pic} name="Lorem Ipsum" linked="#"/>
+            <Teamcard pfp={pic} name="Akshay Warrier" linked="#" github="https://github.com/AkshayWarrier" mail=""/>
+            <Teamcard pfp={pic} name="Ganesh Nathan" linked="#" github="https://github.com/Welf06" mail=""/>
+            <Teamcard pfp={pic} name="Niranjan Nagumalli" linked="#" github="https://github.com/niranjannagumalli" mail=""/>
+            <Teamcard pfp={pic} name="Rohith Ninan" linked="#" github="https://github.com/GHrohith" mail=""/>
+            <Teamcard pfp={pic} name="Sai Harvin" linked="#" github="https://github.com/saiharvin" mail=""/>
+            <Teamcard pfp={pic} name="Samhita Bharthulwar" linked="#" github="https://github.com/samhitha-b" mail=""/>
           </div>
         </div>
       </div>
@@ -33,13 +33,13 @@ function Teamcard(props) {
         <img className='pfp' src={props.pfp} alt="profile-pic" />
         <div className="team-name">{props.name}</div>
         <div className="logo-wrapper">
-        <a href="">
+        <a href="www.gooogle.co.in">
           <Linked className='logo'/>
           </a>
-          <a href="">
+          <a href="www.gooogle.co.in">
           <Mail className='logo'/>
           </a>
-          <a href="">
+          <a href="www.gooogle.co.in">
           <Git className='logo'/>
           </a>
         </div>
