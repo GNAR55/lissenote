@@ -42,6 +42,7 @@ handleSubmit(event) {
    if (link !== "" && fileName !== "" && file !== null) {
        
    } 
+   if (!toLang){toLang = 'en'}
    this.props.navigate('/convert', {state: {link: link, file: file, fileName: fileName, toPDF: this.state.pdf, toLang: toLang}});
    console.log("submitted");
    event.preventDefault();
@@ -102,6 +103,9 @@ class LanguageDropdown extends React.Component {
    handleChange(event) {
      this.setState({value: event.target.value});
       toLang = event.target.value;
+      if (toLang === undefined){
+         toLang = 'en';
+      }
       // console.log(toLang);
    }
  
