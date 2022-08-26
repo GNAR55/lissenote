@@ -34,10 +34,12 @@ function GetPDF(props) {
   const toPDF = props.toPDF;
   const fromRecording = props.fromRecording;
 
+  console.log({ytlink, file, fileName, toPDF, fromRecording})
   console.log(ytlink);
   console.log(file);
   console.log(fileName);
   console.log(toPDF);
+  console.log(fromRecording)
   if (!toPDF){
     document.querySelector("#download-button").innerHTML = "<span>Download DOCX</span>";
   }
@@ -47,8 +49,9 @@ function GetPDF(props) {
     .then((response) => response.blob())
     .then((blob) => URL.createObjectURL(blob))
     .then((url) => {
+      console.log("received response")
       // setpdfUrl(url);
-      // window.open(url);
+      window.open(url);
       blobUrl = url;
       const loadingScreen = document.querySelector('.loading-screen');
       loadingScreen.style.display = 'none';
@@ -72,7 +75,7 @@ function GetPDF(props) {
     }
     fetchRequest(url, options);
   }
-  
+
   else if (ytlink && toPDF ){
   const url = 'http://localhost:5000/yttopdf';
   const formData = new FormData();
@@ -129,10 +132,11 @@ function Convert() {
   const file = location.state.file;
   const fileName = location.state.fileName;
   const toPDF = location.state.toPDF;
+  const fromRecording = location.state.fromRecording;
 
   useEffect(() => {
-    GetPDF({ link: ytlink, file: file, fileName: fileName, toPDF: toPDF });
-  }, [ytlink, file, fileName, toPDF]);
+    GetPDF({ link: ytlink, file: file, fileName: fileName, toPDF: toPDF, fromRecording: fromRecording });
+  }, [ytlink, file, fileName, toPDF, fromRecording]);
 
   return (
     <div className="convert-div">
