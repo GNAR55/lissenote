@@ -89,11 +89,15 @@ function GetPDF(props) {
     fetchRequest(url, options);
   }
 
-  else if (ytlink && toPDF ){
-  const url = 'http://localhost:5000/yttopdf';
+  else if (ytlink){
+    let url = 'http://localhost:5000/yttodocx'
+    if (toPDF){
+       url = 'http://localhost:5000/yttopdf';
+    }
   const formData = new FormData();
   formData.append('url', ytlink);
-  formData.append('responseType', 'arraybuffer')
+  // formData.append('responseType', 'arraybuffer')
+  console.log(toLang)
   formData.append('toLang', toLang);
   const options = {
     method: 'POST',
@@ -101,18 +105,6 @@ function GetPDF(props) {
   }
   fetchRequest(url, options)
   }
-  else if (ytlink && !toPDF ){
-    const url = 'http://localhost:5000/yttodocx';
-    const formData = new FormData();
-    formData.append('url', ytlink);
-    formData.append('responseType', 'arraybuffer')
-    formData.append('toLang', toLang);
-    const options = {
-      method: 'POST',
-      body: formData
-    }
-    fetchRequest(url, options)
-    }
 
   else if (file && toPDF){
     const url = 'http://localhost:5000/audiotopdf';
