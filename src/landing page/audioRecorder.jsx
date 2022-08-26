@@ -40,6 +40,7 @@ class AudioRecorder extends Component {
     }
     }
   start = () => {
+    
     if (this.state.isBlocked) {
       console.log('Permission Denied');
     } else {
@@ -65,7 +66,20 @@ class AudioRecorder extends Component {
       }).catch((e) => console.log(e));
   };
 
-  componentDidMount(){
+  audioPerms = () => {
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+          this.setState({ isBlocked: false });
+        }).catch(err => {
+          this.setState({ isBlocked: true });
+        }
+        );
+    } else {
+      this.setState({ isBlocked: true });
+    }
+  }
+  componentDidMount() {
     navigator.getUserMedia({ audio: true },
       () => {
         console.log('Permission Granted');
@@ -77,6 +91,10 @@ class AudioRecorder extends Component {
       },
     );
   }
+  
+  // componentDidMount(){
+
+  // }
 
   convert = (url) => {
     this.props.navigate('/convert', {state: {file : this.state.file , fromRecording: true}});
@@ -89,7 +107,9 @@ class AudioRecorder extends Component {
         Record Audio
         </div> 
         <div className="button-holder">
-      <button onClick={this.event} className="button-wrapper">
+      <button onClick={() => (
+        this.event()
+        )} className="button-wrapper">
         <Mic className="mic" />
       </button>
       </div>
