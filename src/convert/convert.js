@@ -13,12 +13,21 @@ import "./convert.css";
 var blobUrl;
 // https://www.youtube.com/watch?v=gnlx5ueT2AU
 
-function downloadPDF(fileName) {
+function downloadPDF(fileName, toPDf) {
   const file = blobUrl;
-  let fileN = `notes.pdf`;
+  let fileN;
+  if (toPDf){
+  fileN = `notes.pdf`;
   if (fileName){
     fileN = `${fileName.split(".")[0]}_notes.pdf`;
   }
+  
+else{
+  fileN = 'notes.docx';
+  if (fileName){
+    fileN = `${fileName.split(".")[0]}_notes.docx`
+  }
+}}
   saveAs(file, fileN);
 }
 
@@ -159,7 +168,7 @@ function Convert() {
           </Link>
         </div>
         <div className="button-holder">
-          <button type="submit" id="download-button" onClick={() => { downloadPDF(fileName)}} class="custom-btn btn-3 convert-btn">
+          <button type="submit" id="download-button" onClick={() => { downloadPDF(fileName, toPDF)}} class="custom-btn btn-3 convert-btn">
             <span>Download PDF</span>
             <div className="inside-container"> </div>
           </button>

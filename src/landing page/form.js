@@ -134,7 +134,7 @@ class LanguageDropdown extends React.Component {
          </label>
        </form>
        </div>
-     );
+    );
    }
  }
 
