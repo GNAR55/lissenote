@@ -25,6 +25,11 @@ class Form extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
 }
 
+// when the component loads reset the value of dropdown to en
+componentDidMount() {
+   toLang = "en";
+}
+
 handleChange(event) {
  this.setState({value: event.target.value});
  document.querySelector(".youtube-link").style = "color: black";
@@ -40,7 +45,7 @@ handleChange(event) {
 handleSubmit(event) {
    link = this.state.value;
    if (link !== "" && fileName !== "" && file !== null) {
-       
+      toLang = 'en';
    } 
    if (!toLang){toLang = 'en'}
    this.props.navigate('/convert', {state: {link: link, file: file, fileName: fileName, toPDF: this.state.pdf, toLang: toLang}});
@@ -97,7 +102,7 @@ class LanguageDropdown extends React.Component {
      this.state = {value: 'en'};
  
      this.handleChange = this.handleChange.bind(this);
-     this.handleSubmit = this.handleSubmit.bind(this);
+   //   this.handleSubmit = this.handleSubmit.bind(this);
    }
  
    handleChange(event) {
@@ -108,12 +113,6 @@ class LanguageDropdown extends React.Component {
       }
       // console.log(toLang);
    }
- 
-   handleSubmit(event) {
-     alert('Your favorite flavor is: ' + this.state.value);
-     event.preventDefault();
-   }
- 
    render() {
      return (
       <div className="lang-div">
