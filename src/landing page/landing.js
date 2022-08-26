@@ -28,6 +28,7 @@ export default function landing() {
                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id dapibus elit,  facilisis faucibus purus.
             </div>
             <Form/>
+            <hr />
             <Audio/>
       </div>
     </div>

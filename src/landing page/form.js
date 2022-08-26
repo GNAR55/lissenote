@@ -42,6 +42,7 @@ handleSubmit(event) {
    if (link !== "" && fileName !== "" && file !== null) {
        
    } 
+   if (!toLang){toLang = 'en'}
    this.props.navigate('/convert', {state: {link: link, file: file, fileName: fileName, toPDF: this.state.pdf, toLang: toLang}});
    console.log("submitted");
    event.preventDefault();
@@ -102,6 +103,9 @@ class LanguageDropdown extends React.Component {
    handleChange(event) {
      this.setState({value: event.target.value});
       toLang = event.target.value;
+      if (toLang === undefined){
+         toLang = 'en';
+      }
       // console.log(toLang);
    }
  
@@ -125,6 +129,7 @@ class LanguageDropdown extends React.Component {
              <option value="ml">Malayalam</option>
              <option value="ta">Tamil</option>
              <option value="te">Telugu</option>
+             <option value="bn">Bengali</option>
              <option value="gu">Gujarati</option>
              <option value="or">Odia (Oriya)</option>
              <option value="pa">Punjabi</option>
@@ -133,7 +138,7 @@ class LanguageDropdown extends React.Component {
          </label>
        </form>
        </div>
-     );
+    );
    }
  }
 

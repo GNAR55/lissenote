@@ -13,12 +13,21 @@ import "./convert.css";
 var blobUrl;
 // https://www.youtube.com/watch?v=gnlx5ueT2AU
 
-function downloadPDF(fileName) {
+function downloadPDF(fileName, toPDf) {
   const file = blobUrl;
-  let fileN = `notes.pdf`;
+  let fileN;
+  if (toPDf){
+  fileN = `notes.pdf`;
   if (fileName){
     fileN = `${fileName.split(".")[0]}_notes.pdf`;
   }
+  
+else{
+  fileN = 'notes.docx';
+  if (fileName){
+    fileN = `${fileName.split(".")[0]}_notes.docx`
+  }
+}}
   saveAs(file, fileN);
 }
 
@@ -80,11 +89,15 @@ function GetPDF(props) {
     fetchRequest(url, options);
   }
 
-  else if (ytlink && toPDF ){
-  const url = 'http://localhost:5000/yttopdf';
+  else if (ytlink){
+    let url = 'http://localhost:5000/yttodocx'
+    if (toPDF){
+       url = 'http://localhost:5000/yttopdf';
+    }
   const formData = new FormData();
   formData.append('url', ytlink);
-  formData.append('responseType', 'arraybuffer')
+  // formData.append('responseType', 'arraybuffer')
+  console.log(toLang)
   formData.append('toLang', toLang);
   const options = {
     method: 'POST',
@@ -92,18 +105,6 @@ function GetPDF(props) {
   }
   fetchRequest(url, options)
   }
-  else if (ytlink && !toPDF ){
-    const url = 'http://localhost:5000/yttodocx';
-    const formData = new FormData();
-    formData.append('url', ytlink);
-    formData.append('responseType', 'arraybuffer')
-    formData.append('toLang', toLang);
-    const options = {
-      method: 'POST',
-      body: formData
-    }
-    fetchRequest(url, options)
-    }
 
   else if (file && toPDF){
     const url = 'http://localhost:5000/audiotopdf';
@@ -159,7 +160,7 @@ function Convert() {
           </Link>
         </div>
         <div className="button-holder">
-          <button type="submit" id="download-button" onClick={() => { downloadPDF(fileName)}} class="custom-btn btn-3 convert-btn">
+          <button type="submit" id="download-button" onClick={() => { downloadPDF(fileName, toPDF)}} class="custom-btn btn-3 convert-btn">
             <span>Download PDF</span>
             <div className="inside-container"> </div>
           </button>
