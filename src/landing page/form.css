@@ -35,3 +35,32 @@
    font-size: 1.5em;
    font-weight: bold;
 }
+
+.lang-div{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   max-width: 1400px;
+   margin: auto;
+   padding: 2em 0;
+}
+
+.language-form{
+   /* display: flex; */
+
+}
+.language-choice{
+   background-color: var(--primary-green);
+   transition: 1s all;
+   color: #ffffff;
+   font-size: 1em;
+   padding: 0.5em 1em;
+   border-radius: 5px;
+}
+
+.language-option{
+   padding: 10px 0;
+}
+.language-option :hover{
+   box-shadow: 0 0 10px 100px #000000 inset;
+}

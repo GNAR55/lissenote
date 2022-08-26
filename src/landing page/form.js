@@ -16,7 +16,7 @@ function WithNavigate(props) {
 
 export default WithNavigate
 
-let file, fileName, link;
+let file, fileName, link, toLang;
 class Form extends React.Component {
    constructor(props) {
       super(props);
@@ -42,7 +42,7 @@ handleSubmit(event) {
    if (link !== "" && fileName !== "" && file !== null) {
        
    } 
-   this.props.navigate('/convert', {state: {link: link, file: file, fileName: fileName, toPDF: this.state.pdf}});
+   this.props.navigate('/convert', {state: {link: link, file: file, fileName: fileName, toPDF: this.state.pdf, toLang: toLang}});
    console.log("submitted");
    event.preventDefault();
 }
@@ -67,10 +67,12 @@ render() {
                Enter a youtube link to a lecture, podcast, documentary or anything else
             </div>
             <input value={this.state.value} onChange={this.handleChange} className='youtube-link'/>
+            <div className="dropdown-holder">
+               <LanguageDropdown/>
+            </div>
             <div className="button-holder">
                <button type="submit" class="custom-btn btn-3">
                   {/* add a pdf logo svg */}
-                  
                <span>Convert to PDF</span>
                <div className='inside-container'> </div>
                </button>
@@ -88,6 +90,52 @@ render() {
 }
 }
 
+class LanguageDropdown extends React.Component {
+   constructor(props) {
+     super(props);
+     this.state = {value: 'en'};
+ 
+     this.handleChange = this.handleChange.bind(this);
+     this.handleSubmit = this.handleSubmit.bind(this);
+   }
+ 
+   handleChange(event) {
+     this.setState({value: event.target.value});
+      toLang = event.target.value;
+      // console.log(toLang);
+   }
+ 
+   handleSubmit(event) {
+     alert('Your favorite flavor is: ' + this.state.value);
+     event.preventDefault();
+   }
+ 
+   render() {
+     return (
+      <div className="lang-div">
+         <div className="subtitle">
+         Pick Language of the Notes:
+         </div>
+       <form onSubmit={this.handleSubmit} className="langiage-form">
+         <label>
+           <select value={this.state.value} onChange={this.handleChange} className="language-choice">
+             <option value="en" className='language-option'>English</option>
+             <option value="hi">Hindi</option>
+             <option value="kn">Kannada</option>
+             <option value="ml">Malayalam</option>
+             <option value="ta">Tamil</option>
+             <option value="te">Telugu</option>
+             <option value="gu">Gujarati</option>
+             <option value="or">Odia (Oriya)</option>
+             <option value="pa">Punjabi</option>
+             <option value="ur">Urdu</option>
+           </select>
+         </label>
+       </form>
+       </div>
+     );
+   }
+ }
 
 function DragAndDrop() {
 const fileTypes = ["MP3", "WAV", "MP4", "MKV"];

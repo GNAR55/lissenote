@@ -33,18 +33,21 @@ function GetPDF(props) {
   const fileName = props.fileName;
   const toPDF = props.toPDF;
   const fromRecording = props.fromRecording;
+  const toLang = props.toLang;
 
-  console.log({ytlink, file, fileName, toPDF, fromRecording})
-  console.log(ytlink);
-  console.log(file);
-  console.log(fileName);
-  console.log(toPDF);
-  console.log(fromRecording)
+  console.log({ytlink, file, fileName, toPDF, fromRecording, toLang})
+  // console.log(ytlink);
+  // console.log(file);
+  // console.log(fileName);
+  // console.log(toPDF);
+  // console.log(fromRecording)
+  // console.log(toLang)
   if (!toPDF){
     document.querySelector("#download-button").innerHTML = "<span>Download DOCX</span>";
   }
   const fetchRequest = (url , options) => {
     console.log(`sending request to ${url}`);
+    console.log(options);
     fetch(url, options)
     .then((response) => response.blob())
     .then((blob) => URL.createObjectURL(blob))
@@ -69,6 +72,7 @@ function GetPDF(props) {
     const formData = new FormData();
     formData.append('audio', file);
     formData.append('fileName', 'recording');
+    formData.append('toLang', toLang);
     const options = {
       method: 'POST',
       body: formData
@@ -81,6 +85,7 @@ function GetPDF(props) {
   const formData = new FormData();
   formData.append('url', ytlink);
   formData.append('responseType', 'arraybuffer')
+  formData.append('toLang', toLang);
   const options = {
     method: 'POST',
     body: formData
@@ -92,6 +97,7 @@ function GetPDF(props) {
     const formData = new FormData();
     formData.append('url', ytlink);
     formData.append('responseType', 'arraybuffer')
+    formData.append('toLang', toLang);
     const options = {
       method: 'POST',
       body: formData
@@ -105,6 +111,7 @@ function GetPDF(props) {
     formData.append('audio', file);
     formData.append('fileName', fileName);
     formData.append('responseType', 'arraybuffer')
+    formData.append('toLang', toLang);
     const options = {
       method: 'POST',
       body: formData
@@ -118,6 +125,7 @@ function GetPDF(props) {
     formData.append('audio', file);
     formData.append('fileName', fileName);
     formData.append('responseType', 'arraybuffer')
+    formData.append('toLang', toLang);
     const options = {
       method: 'POST',
       body: formData
@@ -133,10 +141,11 @@ function Convert() {
   const fileName = location.state.fileName;
   const toPDF = location.state.toPDF;
   const fromRecording = location.state.fromRecording;
+  const toLang = location.state.toLang;
 
   useEffect(() => {
-    GetPDF({ link: ytlink, file: file, fileName: fileName, toPDF: toPDF, fromRecording: fromRecording });
-  }, [ytlink, file, fileName, toPDF, fromRecording]);
+    GetPDF({ link: ytlink, file: file, fileName: fileName, toPDF: toPDF, fromRecording: fromRecording, toLang: toLang });
+  }, [ytlink, file, fileName, toPDF, fromRecording, toLang]);
 
   return (
     <div className="convert-div">
