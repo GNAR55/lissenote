@@ -125,6 +125,7 @@ class LanguageDropdown extends React.Component {
              <option value="ml">Malayalam</option>
              <option value="ta">Tamil</option>
              <option value="te">Telugu</option>
+             <option value="bn">Bengali</option>
              <option value="gu">Gujarati</option>
              <option value="or">Odia (Oriya)</option>
              <option value="pa">Punjabi</option>
