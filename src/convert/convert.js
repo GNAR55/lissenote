@@ -3,7 +3,7 @@ import React from "react";
 import { useLocation } from 'react-router-dom';
 import { saveAs } from 'file-saver';
 import {  useEffect } from 'react';
-// import {Routes, Route, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { Link } from "react-router-dom"
 
 
@@ -13,14 +13,26 @@ import "./convert.css";
 var blobUrl;
 // https://www.youtube.com/watch?v=gnlx5ueT2AU
 
-function downloadPDF(props) {
+function downloadPDF(fileName, toPDf) {
   const file = blobUrl;
-  const fileName = "lissenote.pdf";
-  saveAs(file, fileName);
+  let fileN;
+  if (toPDf){
+  fileN = `notes.pdf`;
+  if (fileName){
+    fileN = `${fileName.split(".")[0]}_notes.pdf`;
+  }
+  
+else{
+  fileN = 'notes.docx';
+  if (fileName){
+    fileN = `${fileName.split(".")[0]}_notes.docx`
+  }
+}}
+  saveAs(file, fileN);
 }
 
 function NavigateToHome() {
-  // useNavigate('/lissenote');
+  useNavigate('/lissenote');
 }
 
 function GetPDF(props) {
@@ -28,25 +40,30 @@ function GetPDF(props) {
   const ytlink = props.link;
   const file = props.file;
   const fileName = props.fileName;
-  console.log(ytlink);
-  console.log(file);
-  console.log(fileName);
-  // make a fetch post request 
-  if (ytlink){
-  const url = 'http://localhost:5000/yt';
-  const formData = new FormData();
-  formData.append('url', ytlink);
-  formData.append('responseType', 'arraybuffer')
-  const options = {
-    method: 'POST',
-    body: formData
+  const toPDF = props.toPDF;
+  const fromRecording = props.fromRecording;
+  const toLang = props.toLang;
+
+  console.log({ytlink, file, fileName, toPDF, fromRecording, toLang})
+  // console.log(ytlink);
+  // console.log(file);
+  // console.log(fileName);
+  // console.log(toPDF);
+  // console.log(fromRecording)
+  // console.log(toLang)
+  if (!toPDF){
+    document.querySelector("#download-button").innerHTML = "<span>Download DOCX</span>";
   }
-  fetch(url, options)
+  const fetchRequest = (url , options) => {
+    console.log(`sending request to ${url}`);
+    console.log(options);
+    fetch(url, options)
     .then((response) => response.blob())
     .then((blob) => URL.createObjectURL(blob))
     .then((url) => {
+      console.log("received response")
       // setpdfUrl(url);
-      // window.open(url);
+      window.open(url);
       blobUrl = url;
       const loadingScreen = document.querySelector('.loading-screen');
       loadingScreen.style.display = 'none';
@@ -58,31 +75,63 @@ function GetPDF(props) {
     })
     .catch((er) => console.log(er))
   }
-  else if (file){
-    const url = 'http://localhost:5000/audio';
+  // make a fetch post request 
+  if (fromRecording){
+    const url = "http://localhost:5000/audiotopdf"
     const formData = new FormData();
     formData.append('audio', file);
-    formData.append('fileName', fileName);
-    formData.append('responseType', 'arraybuffer')
+    formData.append('fileName', 'recording');
+    formData.append('toLang', toLang);
     const options = {
       method: 'POST',
       body: formData
     }
-    fetch(url, options)
-      .then((response) => response.blob())
-      .then((blob) => URL.createObjectURL(blob))
-      .then((url) => {
-        // setpdfUrl(url);
-        // window.open(url);
-        blobUrl = url;
-        const loadingScreen = document.querySelector('.loading-screen');
-        loadingScreen.style.display = 'none';
-        const convertDiv = document.querySelector(".pdf-frame-container");
-        const pdfFrame = document.createElement("iframe");
-        pdfFrame.src = url;
-        pdfFrame.className = "pdf-frame";
-        convertDiv.appendChild(pdfFrame);
-      }).catch((er) => console.log(er))
+    fetchRequest(url, options);
+  }
+
+  else if (ytlink){
+    let url = 'http://localhost:5000/yttodocx'
+    if (toPDF){
+       url = 'http://localhost:5000/yttopdf';
+    }
+  const formData = new FormData();
+  formData.append('url', ytlink);
+  // formData.append('responseType', 'arraybuffer')
+  console.log(toLang)
+  formData.append('toLang', toLang);
+  const options = {
+    method: 'POST',
+    body: formData
+  }
+  fetchRequest(url, options)
+  }
+
+  else if (file && toPDF){
+    const url = 'http://localhost:5000/audiotopdf';
+    const formData = new FormData();
+    formData.append('audio', file);
+    formData.append('fileName', fileName);
+    formData.append('responseType', 'arraybuffer')
+    formData.append('toLang', toLang);
+    const options = {
+      method: 'POST',
+      body: formData
+    }
+    fetchRequest(url, options)
+  }
+
+  else if (file && !toPDF){
+    const url = 'http://localhost:5000/audiotodocx';
+    const formData = new FormData();
+    formData.append('audio', file);
+    formData.append('fileName', fileName);
+    formData.append('responseType', 'arraybuffer')
+    formData.append('toLang', toLang);
+    const options = {
+      method: 'POST',
+      body: formData
+    }
+    fetchRequest(url, options)
   }
 }
 
@@ -91,9 +140,13 @@ function Convert() {
   const ytlink = location.state.link;
   const file = location.state.file;
   const fileName = location.state.fileName;
+  const toPDF = location.state.toPDF;
+  const fromRecording = location.state.fromRecording;
+  const toLang = location.state.toLang;
+
   useEffect(() => {
-    GetPDF({ link: ytlink, file: file, fileName: fileName });
-  }, [ytlink, file, fileName]);
+    GetPDF({ link: ytlink, file: file, fileName: fileName, toPDF: toPDF, fromRecording: fromRecording, toLang: toLang });
+  }, [ytlink, file, fileName, toPDF, fromRecording, toLang]);
 
   return (
     <div className="convert-div">
@@ -107,7 +160,7 @@ function Convert() {
           </Link>
         </div>
         <div className="button-holder">
-          <button type="submit" onClick={downloadPDF} class="custom-btn btn-3 convert-btn">
+          <button type="submit" id="download-button" onClick={() => { downloadPDF(fileName, toPDF)}} class="custom-btn btn-3 convert-btn">
             <span>Download PDF</span>
             <div className="inside-container"> </div>
           </button>

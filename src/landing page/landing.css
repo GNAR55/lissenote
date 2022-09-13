@@ -108,6 +108,10 @@
 }
 
 .fVfcRr .file-types{
+      overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    max-width: 300px !important;
    color: #393838 !important;
    padding: 10px !important;
    font-size: 0.6em !important;
@@ -259,5 +263,12 @@ button {
    height: 100%;
    width: 100%;
  }
+
+hr{
+   height: 5px;
+   background-color: #212121;
+   opacity: 0.5;
+   margin-bottom: 1.5em;
+}
  
  

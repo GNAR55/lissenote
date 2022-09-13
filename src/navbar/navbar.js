@@ -25,7 +25,7 @@ function navbar() {
                <HashLink smooth to="/#about">
                   <li><a href="#about">Examples</a></li>
                </HashLink>
-               <HashLink smooth to="/#use-cases">
+               <HashLink smooth to="/#why">
                   <li><a href="#use-cases">Use Cases</a></li>
                </HashLink>
                <HashLink smooth to ="/#team">

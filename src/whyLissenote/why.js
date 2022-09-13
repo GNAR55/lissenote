@@ -7,7 +7,7 @@ import Slide from 'react-reveal/Slide';
 
 function why() {
   return (
-    <div className="why-div">
+    <div id="why" className="why-div">
       <div className="why-lis">
         <p className="head">Why lissenote?</p>
         <div className="wrappup">
@@ -24,7 +24,7 @@ function why() {
           <Slide bottom>
           <div className="usecase-box-wrapper">
             <div className="usecase-box">
-              <p className="title">Missed something?</p>
+              <p className="title">Missed something Important?</p>
               <div className="content">
                 Quickly go through the notes to catch up anything you missed
               </div>
