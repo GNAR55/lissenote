@@ -4,7 +4,7 @@ Lissenote is a web app that converts audio and video files into notes, providing
 
 Lissenote is built with a react frontend and a flask backend, and it uses wave2vec for speech recognition. The app also makes use of a few APIs, including the Wikipedia API and the Google Translate API, to enhance its functionality and usability.
 
-This code sample was a winner in the Smart India Hackathon 2022. The submitted repository contains the frontend code of Lissenote, which was developed by the team member responsible for this code. The backend and model training were handled by other team members.
+This code sample was a winner in the Smart India Hackathon 2022. The submitted repository contains the frontend code of Lissenote.
 
 ## Getting Started
 
