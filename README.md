@@ -37,6 +37,8 @@ npm install
 npm start
 ```
 
+4. Refer [lissenote_backend](https://github.com/GNAR55/lissenote_backend) to get the Backend Running
+
 
 The app should now be running on http://localhost:3000.
 
