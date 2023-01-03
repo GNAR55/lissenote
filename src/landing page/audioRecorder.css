@@ -4,6 +4,10 @@
 .audio-player{
    width: 500px;
    margin: 20px 0;
+}@media (max-width: 768px){
+   .audio-player{
+      width: 100%;
+   }
 }
 
 .audio-holder{

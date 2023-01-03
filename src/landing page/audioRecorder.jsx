@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import MicRecorder from 'mic-recorder-to-mp3';
-import { saveAs } from 'file-saver';
 import {useNavigate} from 'react-router-dom';
 
 import "./landing.css";
